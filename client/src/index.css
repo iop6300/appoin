@@ -40,12 +40,14 @@
     }
     .hero h1{margin:0 0 12px; font-size:clamp(32px, 6vw, 64px); color:var(--heading); letter-spacing:-0.01em}
     .hero p{margin:0 auto 28px; max-width:720px; color:var(--text); opacity:.92; font-size:clamp(15px, 2.4vw, 18px)}
-    .hero .cta{
-      display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:12px; 
+    .cta{
+      display:flex; align-items:center; justify-content:center; gap:10px; padding:16px 24px; border-radius:12px; 
       color:#0A0F1E; background:var(--accent); border:0; font-weight:700; cursor:pointer;
       transition:transform .15s ease, background .15s ease;
+      margin: 0 auto;
     }
-    .hero .cta:hover{background:var(--accent-hover); transform:translateY(-1px)}
+    .cta:hover{background:var(--accent-hover); transform:translateY(-3px); box-shadow:0 8px 16px rgba(102, 255, 204, 0.2);
+}
     .hero .ghost{
       margin-left:8px; display:inline-flex; align-items:center; gap:8px; padding:11px 16px;
       background:transparent; color:var(--accent); border:1px solid var(--accent); border-radius:12px; cursor:pointer;
@@ -105,35 +107,102 @@
       gap: 8px;
       margin-top: 1rem;
     }
-    .time-slot-btn {
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--text);
-      cursor: pointer;
-      transition: background .15s ease, color .15s ease, border-color .15s ease;
-      font-weight: 600;
-      font-family: inherit;
-      font-size: 14px;
-    }
-    .time-slot-btn:hover:not(:disabled) {
-      background: var(--card);
-      border-color: var(--accent);
-    }
-    .time-slot-btn.active {
-      background: var(--accent);
-      color: var(--bg);
-      border-color: var(--accent);
-    }
-    .time-slot-btn:disabled {
-      opacity: .4;
-      cursor: not-allowed;
-      text-decoration: line-through;
-    }
+    :root{
+  --bg-navy:#0a1128;           /* 다크 네이비 배경 */
+  --grad-a:#15dcf6;
+  --grad-b:#f42bce;
+}
+
+/* ...중략... */
+
+/* 시간 버튼 기본 상태: 배경을 투명/네이비 톤으로 */
+.time-slot-btn{
+  padding:8px 12px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.20);
+  background: transparent;          /* ← 항상 투명 */
+  color:#0a1128;                    /* 어두운 배경에서 가독성 */
+  transition: all .15s ease;
+  font-weight:600;
+}
+.time-slot-btn:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.04); /* 살짝만 밝아짐 (원치 않으면 이 줄 삭제) */
+}
+.time-slot-btn.active{
+  border-color: transparent;
+  color:#fff;
+  background: linear-gradient(90deg, var(--grad-a), var(--grad-b)); /* 선택 시만 강조 */
+  box-shadow:0 6px 18px rgba(244,43,206,.25);
+}
+.time-slot-btn:disabled{
+  background: transparent;          /* 비활성도 투명 유지 */
+  color:#8aa0c6;
+  border-color: rgba(255,255,255,.12);
+  transform:none;
+  opacity:1;                        /* 투명 배경이라 가독성 위해 유지 */
+}
 
     @media (min-width: 940px) {
       .form-card {
         grid-column: span 2;
       }
     }
+:root{
+  --bg-navy:#0a1128;
+  --grad-a:#15dcf6;
+  --grad-b:#f42bce;
+}
+
+.app-wrap{ min-height:100vh; position:relative; overflow:hidden; }
+.canvas{ position:absolute; inset:0; z-index:0; }
+.app-inner{ position:relative; z-index:1; max-width:960px; margin:0 auto; padding:24px; }
+
+.app-header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; }
+.app-title{
+  margin:0;
+  font-weight:800;
+  background: linear-gradient(90deg, var(--grad-a), var(--grad-b));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.app-nav{ display:flex; gap:12px; }
+
+.btn{
+  padding:10px 14px; border-radius:10px; border:1px solid #e5e7eb;
+  background:#fff; transition:transform .1s ease, box-shadow .2s ease, border-color .2s;
+}
+.btn:hover{ transform:translateY(-1px); box-shadow:0 6px 18px rgba(0,0,0,.08); border-color:#d1d5db; }
+.btn:disabled{ opacity:.6; cursor:not-allowed; transform:none; box-shadow:none; }
+
+.alert{
+  padding:12px 16px; border-radius:8px; margin-bottom:16px; border:1px solid;
+}
+.alert-success{ background:#e6ffed; border-color:#b7f5c4; }
+.alert-danger{ background:#ffecec; border-color:#ffb3b3; }
+
+.section{ margin-bottom:32px; }
+.section h2{ margin:0 0 12px; font-weight:700; }
+
+.time-grid{ display:flex; flex-wrap:wrap; gap:8px; }
+.time-slot-btn{
+  padding:8px 12px; border-radius:10px; border:1px solid #e5e7eb; background:#fff;
+  transition: all .15s ease; font-weight:600;
+}
+.time-slot-btn.active{
+  border-color:transparent; color:#fff;
+  background: linear-gradient(90deg, var(--grad-a), var(--grad-b));
+  box-shadow:0 6px 18px rgba(244,43,206,.25);
+}
+.time-slot-btn:hover{ transform:translateY(-1px); }
+.time-slot-btn:disabled{ opacity:.6; transform:none; }
+
+.form{ display:grid; gap:12px; max-width:560px; }
+.form label{ display:grid; gap:6px; }
+.form input, .form select{
+  padding:10px 12px; border-radius:10px; border:1px solid #e5e7eb; background:#fff;
+}
+.submit{
+  padding:12px 16px; border-radius:12px; border:none; color:#fff;
+  background: linear-gradient(90deg, var(--grad-a), var(--grad-b));
+  font-weight:700; box-shadow:0 10px 24px rgba(21,220,246,.25);
+}
