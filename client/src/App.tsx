@@ -205,7 +205,67 @@ function App() {
       <section id="form" className="section">
         <h2>신청서 작성</h2>
         <form onSubmit={handleSubmit} className="form">
-          {/* 이하 동일 */}
+          <div className="form-grid">
+            <div className="form-group">
+              <label htmlFor="studentName">학생 이름</label>
+              <input
+                type="text"
+                id="studentName"
+                name="studentName"
+                value={formData.studentName}
+                onChange={handleFormChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="parentContact">학부모 연락처</label>
+              <input
+                type="tel"
+                id="parentContact"
+                name="parentContact"
+                value={formData.parentContact}
+                onChange={handleFormChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="schoolLevel">학교급</label>
+              <select
+                id="schoolLevel"
+                name="schoolLevel"
+                value={formData.schoolLevel}
+                onChange={handleFormChange}
+                required
+              >
+                <option value="">선택</option>
+                <option value="초등학생">초등학생</option>
+                <option value="중학생">중학생</option>
+                <option value="고등학생">고등학생</option>
+              </select>
+            </div>
+            <div className="form-group">
+              <label htmlFor="grade">학년</label>
+              <input
+                type="text"
+                id="grade"
+                name="grade"
+                value={formData.grade}
+                onChange={handleFormChange}
+                required
+              />
+            </div>
+            <div className="form-group full-width">
+              <label htmlFor="interest">상담 희망 분야</label>
+              <input
+                type="text"
+                id="interest"
+                name="interest"
+                value={formData.interest}
+                onChange={handleFormChange}
+                required
+              />
+            </div>
+          </div>
           <button type="submit" className="submit" disabled={!selectedTime}>
             {selectedTime ? `${selectedTime} 예약하기` : '시간을 먼저 선택하세요'}
           </button>
