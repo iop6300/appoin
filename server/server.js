@@ -17,6 +17,12 @@ const SHEET_NAME = 'Sheet1'; // Assumes data is in 'Sheet1'. Change if your shee
 app.use(cors());
 app.use(bodyParser.json());
 
+// Middleware to log all incoming requests for debugging
+app.use((req, res, next) => {
+    console.log(`Request received: ${req.method} ${req.originalUrl}`);
+    next();
+});
+
 // --- Google Sheets Helper Functions ---
 
 // Function to get authenticated Google Sheets client
