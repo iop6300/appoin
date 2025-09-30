@@ -14,16 +14,7 @@ const SHEETS_SCOPE = ['https://www.googleapis.com/auth/spreadsheets'];
 const SHEET_NAME = 'Sheet1'; // Assumes data is in 'Sheet1'. Change if your sheet name is different.
 // ----------------------------------
 
-const allowedOrigins = ['http://localhost:3000', 'https://iop6300.github.io'];
-app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    }
-}));
+app.use(cors());
 app.use(bodyParser.json());
 
 // --- Google Sheets Helper Functions ---
