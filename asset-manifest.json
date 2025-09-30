@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/narnia_events/static/css/main.f6698e21.css",
+    "main.js": "/narnia_events/static/js/main.67e6c6a7.js",
+    "static/js/453.a3c1d153.chunk.js": "/narnia_events/static/js/453.a3c1d153.chunk.js",
+    "index.html": "/narnia_events/index.html",
+    "main.f6698e21.css.map": "/narnia_events/static/css/main.f6698e21.css.map",
+    "main.67e6c6a7.js.map": "/narnia_events/static/js/main.67e6c6a7.js.map",
+    "453.a3c1d153.chunk.js.map": "/narnia_events/static/js/453.a3c1d153.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f6698e21.css",
+    "static/js/main.67e6c6a7.js"
+  ]
+}
