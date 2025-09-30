@@ -255,7 +255,7 @@ function App() {
               />
             </div>
             <div className="form-group full-width">
-              <label htmlFor="interest">상담 희망 분야</label>
+              <label htmlFor="interest">관심 분야</label>
               <input
                 type="text"
                 id="interest"
