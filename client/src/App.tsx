@@ -30,7 +30,7 @@ const StaticParticles = React.memo(function StaticParticles() {
 
 
 // API 기본 URL
-const API_URL = '/api';
+const API_URL = 'https://narnia-events.onrender.com/api';
 const TIME_SLOT_LIMIT = 10; // 타임당 예약 제한
 
 // 타입
