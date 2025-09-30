@@ -92,16 +92,8 @@ function App() {
 
   // 오늘 날짜 예약 정보 로드
   useEffect(() => {
-    axios
-      .get(`${API_URL}/reservations?date=${selectedDate}`)
-      .then((response) => {
-        const reservations = response.data;
-        setBookedTimes(reservations.map((r: any) => r.time));
-      })
-      .catch((error) => {
-        console.error('Error fetching reservations:', error);
-        setMessage({ type: 'danger', text: '예약 정보를 불러오는 데 실패했습니다.' });
-      });
+    // The backend is not available on GitHub Pages, so we don't fetch.
+    // You can add mock data here if needed.
   }, [selectedDate]);
 
   // 폼 입력 핸들러
@@ -168,7 +160,7 @@ function App() {
 
     <div className="app-inner">
       <header className="app-header">
-        <h1 className="app-title">예약 신청</h1>
+        <h1 className="app-title">나니아랩 체험부스 예약신청</h1>
         <nav className="app-nav">
           <button type="button" className="btn" onClick={() => handleScrollTo('times')}>시간선택</button>
           <button type="button" className="btn" onClick={() => handleScrollTo('form')}>신청서</button>
