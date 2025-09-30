@@ -17,3 +17,6 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Google API credentials
+server/google-credentials.json

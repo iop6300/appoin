@@ -219,6 +219,7 @@ function App() {
                 onChange={handleFormChange}
                 required
               />
+              <p style={{ fontSize: '12px', color: '#666', marginTop: '4px' }}>'-' 없이 숫자만 입력해주세요.</p>
             </div>
             <div className="form-group">
               <label htmlFor="schoolLevel">학교급</label>
@@ -245,6 +246,7 @@ function App() {
                 onChange={handleFormChange}
                 required
               />
+              <p style={{ fontSize: '12px', color: '#666', marginTop: '4px' }}>예: 중1, 고2</p>
             </div>
             <div className="form-group full-width">
               <label htmlFor="interest">학생 관심 분야</label>
@@ -256,6 +258,7 @@ function App() {
                 onChange={handleFormChange}
                 required
               />
+              <p style={{ fontSize: '12px', color: '#666', marginTop: '4px' }}>예: 코딩, 디자인, 영상 편집 등</p>
             </div>
           </div>
           <button type="submit" className="submit" disabled={!selectedTime}>
