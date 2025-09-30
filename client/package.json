@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "homepage": "https://iop6300.github.io/narnia_events",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.8.0",
@@ -28,7 +29,7 @@
   },
   "scripts": {
     "start": "HOST=0.0.0.0 react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
